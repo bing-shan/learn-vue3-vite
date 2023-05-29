@@ -1,14 +1,53 @@
-import { fileURLToPath, URL } from 'node:url'
-
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import AutoImport from "unplugin-auto-import/vite";
+import path from "path";
+import Components from "unplugin-vue-components/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    AutoImport({
+      imports: ["vue", "vue-router"], //自动导入vue和vue-router相关函数
+    }),
+    Components({
+      //1，配置ElementPlus采用sass样式配色系统
+      resolvers: [ElementPlusResolver({ importStyle: "sass" })],
+    }),
+  ],
+
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          home: ["./src/views"],
+        },
+      },
+    },
+  },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
-})
+      "@": path.resolve(__dirname, "src"),
+      // views: path.resolve(__dirname, "src/views"),
+      // assets: path.resolve(__dirname, "src/assets"),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        //2，自动导入定制化样式文件进行样式覆盖。
+        additionalData: `
+          @use "@/assets/styles/element/index.scss" as *;
+          @use "@/assets/styles/var.scss" as *;
+        `
+      },
+    },
+  },
+  server: {
+    proxy: {
+      "/api": "",
+    },
+  },
+});
