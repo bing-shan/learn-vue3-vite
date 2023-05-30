@@ -1,8 +1,8 @@
 <script>
 import { onMounted } from "vue";
-import Home from "@/views/Home.vue";
+// import Home from "@/views/Home.vue";
 export default {
-  components: { Home },
+  // components: { Home },
   setup() {
     // const name = ref("张三");
     // provide("name", name);
