@@ -5,7 +5,7 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use(config => {
-
+    return config
 },e => Promise.reject(e));
 
 instance.interceptors.response.use(res => res.data,e => {

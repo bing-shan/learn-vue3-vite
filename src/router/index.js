@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, createWebHashHistory } from "vue-router";
 import Home from "@/views/Home.vue";
 import Login from "../views/Login.vue";
+import Layout from "../views/layout/Index.vue";
 
 const routes = [
   {
@@ -12,6 +13,10 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login,
+  },{
+    path: "/layout",
+    name: "Layout",
+    component: Layout,
   },
 ];
 const router = createRouter({

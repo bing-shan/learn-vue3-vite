@@ -1,7 +1,7 @@
 import request from "@/utils/request.js";
 
-export function getData (data){
+export function getCategory (data){
     return request({
-        url:'home/category/head'
+        url:'/home/category/head'
     })
 }
