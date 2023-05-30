@@ -1,22 +1,5 @@
-<script>
-import { onMounted } from "vue";
-// import Home from "@/views/Home.vue";
-export default {
-  // components: { Home },
-  setup() {
-    // const name = ref("张三");
-    // provide("name", name);
-    // function changeName(params) {
-    //   name.value = "李四";
-    // }
-    //
-    // onMounted(() => {});
-    // return {
-    //   name,
-    //   changeName,
-    // };
-  },
-};
+<script setup>
+
 </script>
 
 <template>
