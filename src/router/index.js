@@ -1,23 +1,27 @@
 import { createRouter, createWebHistory, createWebHashHistory } from "vue-router";
-// import Home from "@/views/Home.vue";
-// import Login from "../views/Login.vue";
+import Home from "@/views/Home/Index.vue";
+import Category from "@/views/Home/Category.vue";
 import Layout from "../views/layout/Index.vue";
 
 const routes = [
   {
     path: "/",
-    // component: Layout,
+    // component: Layout,//重定向不需要写component
     redirect:"/layout"
   },
-  // {
-  //   path: "/login",
-  //   name: "Login",
-  //   component: Login,
-  // },
   {
     path: "/layout",
     name: "Layout",
     component: Layout,
+    children:[
+      {
+        path:"",
+        component:Home
+      }, {
+        path:"category",
+        component:Category
+      },
+    ]
   },
   {
     path: "/:pathMatch(.*)",

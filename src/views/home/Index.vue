@@ -16,7 +16,4 @@ import HomeProduct from './components/Product.vue'
   <HomeProduct />
 </template>
 <style>
-.container{
-  height:1000px;
-}
 </style>

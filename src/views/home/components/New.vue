@@ -1,5 +1,6 @@
 <script setup>
 import HomePanel from "./HomePanel.vue";
+import GoodsItem from "./GoodsItem.vue";
 import {getNew} from "@/apis/layout.js";
 import {onMounted} from "vue";
 
@@ -18,9 +19,7 @@ onMounted(() => {
     <ul class="goods-list">
       <li v-for="(item,index) in newList" :key="item.id">
         <RouterLink to="/">
-          <img alt="" v-img-lazy="item.picture"/>
-          <p class="name">{{ item.name }}</p>
-          <p class="price">&yen;{{ item.price }}</p>
+          <goods-item :goods="item"></goods-item>
         </RouterLink>
       </li>
     </ul>
@@ -42,24 +41,6 @@ onMounted(() => {
     &:hover {
       transform: translate3d(0, -3px, 0);
       box-shadow: 0 3px 8px rgb(0 0 0 / 20%);
-    }
-
-    img {
-      width: 306px;
-      height: 306px;
-    }
-
-    p {
-      font-size: 18px;
-      padding-top: 12px;
-      text-align: center;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    .price {
-      color: $priceColor;
     }
   }
 }
