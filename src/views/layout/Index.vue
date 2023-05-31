@@ -18,7 +18,8 @@ onMounted(() => {
   <layout-fixed></layout-fixed>
   <layout-nav></layout-nav>
   <layout-header></layout-header>
-  <home></home>
+<!--  <home></home>-->
+  <RouterView />
   <layout-footer></layout-footer>
 </template>
 <style lang="scss" scoped>

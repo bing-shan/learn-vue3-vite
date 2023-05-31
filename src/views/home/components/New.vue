@@ -15,11 +15,15 @@ onMounted(() => {
 })
 </script>
 <template>
-  <home-panel h2="好物推荐" h3="豪华套餐">
+  <home-panel h2="新鲜好物" h3="新鲜出炉 品质靠谱">
     <ul class="goods-list">
       <li v-for="(item,index) in newList" :key="item.id">
         <RouterLink to="/">
-          <goods-item :goods="item"></goods-item>
+          <goods-item
+              :imgUrl="item.picture"
+              :text1="item.name"
+              :text2="item.price"
+          ></goods-item>
         </RouterLink>
       </li>
     </ul>

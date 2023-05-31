@@ -1,24 +1,26 @@
 import { createRouter, createWebHistory, createWebHashHistory } from "vue-router";
 import Home from "@/views/Home/Index.vue";
-import Category from "@/views/Home/Category.vue";
+import Category from "@/views/category/Index.vue";
 import Layout from "../views/layout/Index.vue";
 
 const routes = [
+  // {
+  //   path: "/",
+    // component: Layout,//重定向不需要写component
+    // redirect:"/layout"
+  // },
   {
     path: "/",
-    // component: Layout,//重定向不需要写component
-    redirect:"/layout"
-  },
-  {
-    path: "/layout",
     name: "Layout",
     component: Layout,
     children:[
       {
         path:"",
+        name:"Home",
         component:Home
       }, {
-        path:"category",
+        path:"category/:id",
+        name:"Category",
         component:Category
       },
     ]

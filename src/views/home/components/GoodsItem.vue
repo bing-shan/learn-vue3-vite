@@ -1,17 +1,26 @@
 <script setup>
+import {onMounted} from "vue";
+
 defineProps({
-  goods:{
-    type:Object,
-    default:{}
+  imgUrl:{
+    type:String,
+    default:""
+  },
+  text1:{
+    type:String,
+    default:""
+  },
+  text2:{
+    type:String,
+    default:""
   },
 })
 
 </script>
 <template>
   <img alt="" v-img-lazy="imgUrl"/>
-  <p class="name">{{ goods.name }}</p>
-  <p class="name">{{ goods.desc }}</p>
-  <p class="price">&yen;{{ goods.price }}</p>
+  <p class="name">{{ text1 }}</p>
+  <p class="name">{{ text2 }}</p>
 </template>
 <style lang="scss" scoped>
 img {

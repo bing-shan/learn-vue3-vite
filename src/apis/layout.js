@@ -14,9 +14,23 @@ export function getBanner(data) {
   })
 }
 
-//好物推荐：
+//新鲜好物：
 export function getNew(data) {
   return request({
     url: '/home/new'
+  })
+}
+
+//人气推荐
+export function getHot(data) {
+  return request({
+    url: '/home/hot'
+  })
+}
+
+//产品列表
+export function getGoods(data) {
+  return request({
+    url: '/home/goods'
   })
 }
