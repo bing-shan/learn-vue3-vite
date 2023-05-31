@@ -18,7 +18,6 @@ onMounted(() => {
   <layout-fixed></layout-fixed>
   <layout-nav></layout-nav>
   <layout-header></layout-header>
-<!--  <router-view></router-view>-->
   <home></home>
   <layout-footer></layout-footer>
 </template>

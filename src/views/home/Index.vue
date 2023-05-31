@@ -15,3 +15,8 @@ import HomeProduct from './components/Product.vue'
   <HomeHot />
   <HomeProduct />
 </template>
+<style>
+.container{
+  height:1000px;
+}
+</style>

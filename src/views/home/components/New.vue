@@ -14,17 +14,17 @@ onMounted(() => {
 })
 </script>
 <template>
-<home-panel h2="好物推荐" h3="豪华套餐">
-  <ul class="goods-list">
-    <li v-for="item in newList" :key="item.id">
-      <RouterLink to="/">
-        <img :src="item.picture" alt="" />
-        <p class="name">{{ item.name }}</p>
-        <p class="price">&yen;{{ item.price }}</p>
-      </RouterLink>
-    </li>
-  </ul>
-</home-panel>
+  <home-panel h2="好物推荐" h3="豪华套餐">
+    <ul class="goods-list">
+      <li v-for="(item,index) in newList" :key="item.id">
+        <RouterLink to="/">
+          <img alt="" v-img-lazy="item.picture"/>
+          <p class="name">{{ item.name }}</p>
+          <p class="price">&yen;{{ item.price }}</p>
+        </RouterLink>
+      </li>
+    </ul>
+  </home-panel>
 </template>
 <style lang="scss" scoped>
 .goods-list {

@@ -6,8 +6,8 @@ import Layout from "../views/layout/Index.vue";
 const routes = [
   {
     path: "/",
-    name: "Layout",
-    component: Layout,
+    // component: Layout,
+    redirect:"/layout"
   },
   // {
   //   path: "/login",
@@ -19,9 +19,14 @@ const routes = [
     name: "Layout",
     component: Layout,
   },
+  {
+    path: "/:pathMatch(.*)",
+    name: "Layout",
+    component: Layout,
+  },
 ];
 const router = createRouter({
-  history: createWebHistory("/"),
+  history: createWebHistory(),
   routes,
 });
 export default router;
