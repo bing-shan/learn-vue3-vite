@@ -1,5 +1,33 @@
 <script setup>
+import {getCategoryApi} from "@/apis/category";
+import {getBanner} from "@/apis/layout.js"
+import GoodsItem from "@/views/home/components/GoodsItem.vue"
 
+import {onMounted} from "vue";
+
+const bannerList = ref([]);
+const getBannerList = async () => {
+  const res = await getBanner({
+    distributionSite: 2
+  });
+  bannerList.value = res.result;
+}
+
+onBeforeRouteUpdate((to) => {
+  getCategoryList(to.params.id);
+})
+
+const categoryData = ref([]);
+const route = useRoute();
+const getCategoryList = async (id = route.params.id) => {
+  const res = await getCategoryApi(id);
+  categoryData.value = res.result;
+}
+
+onMounted(() => {
+  getCategoryList();
+  getBannerList();
+})
 </script>
 <template>
   <div class="top-category">
@@ -8,14 +36,47 @@
       <div class="bread-container">
         <el-breadcrumb separator=">">
           <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item>居家</el-breadcrumb-item>
+          <el-breadcrumb-item>{{ categoryData.name }}</el-breadcrumb-item>
         </el-breadcrumb>
+      </div>
+
+      <!-- 轮播图   -->
+      <div class="home-banner">
+        <el-carousel height="500px">
+          <el-carousel-item v-for="item in bannerList" :key="item.id">
+            <img :src="item.imgUrl" alt="">
+          </el-carousel-item>
+        </el-carousel>
+      </div>
+
+      <div class="sub-list">
+        <h3>全部分类</h3>
+        <ul>
+          <li v-for="i in categoryData.children" :key="i.id">
+            <RouterLink to="/">
+              <img :src="i.picture"/>
+              <p>{{ i.name }}</p>
+            </RouterLink>
+          </li>
+        </ul>
+      </div>
+      <div class="ref-goods" v-for="item in categoryData.children" :key="item.id">
+        <div class="head">
+          <h3>- {{ item.name }}-</h3>
+        </div>
+        <div class="body">
+          <GoodsItem
+            v-for="good in item.goods"
+            :imgUrl="good.picture"
+            :text1="good.name"
+            :text2="good.price"
+            :key="good.id"
+          />
+        </div>
       </div>
     </div>
   </div>
 </template>
-
-
 <style scoped lang="scss">
 .top-category {
   h3 {
@@ -92,6 +153,18 @@
 
   .bread-container {
     padding: 25px 0;
+  }
+}
+
+.home-banner {
+  width: 1240px;
+  height: 500px;
+  margin: 0 auto;
+
+
+  img {
+    width: 100%;
+    height: 500px;
   }
 }
 </style>

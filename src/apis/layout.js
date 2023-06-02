@@ -8,9 +8,14 @@ export function getCategory(data) {
 }
 
 //轮播图：
-export function getBanner(data) {
+export function getBanner(params = {}) {
+  //默认为1，商品为2；
+  const {distributionSite = 1} = params;
   return request({
-    url: '/home/banner'
+    url: '/home/banner',
+    params:{
+      distributionSite,
+    }
   })
 }
 

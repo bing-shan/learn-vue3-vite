@@ -11,19 +11,19 @@
             <a href="javascript:;"><i class="iconfont icon-user"></i>鍛ㄦ澃浼?</a>
           </li>
           <li>
-            <el-popconfirm title="纭閫€鍑哄悧?" confirm-button-text="纭" cancel-button-text="鍙栨秷">
+            <el-popconfirm title="确认退出吗?" confirm-button-text="确认" cancel-button-text="取消">
               <template #reference>
-                <a href="javascript:;">閫€鍑虹櫥褰</a>
+                <a href="javascript:;">退出登录</a>
               </template>
             </el-popconfirm>
           </li>
-          <li><a href="javascript:;">鎴戠殑璁㈠崟</a></li>
-          <li><a href="javascript:;">浼氬憳涓績</a></li>
+          <li><a href="javascript:;">我的订单</a></li>
+          <li><a href="javascript:;">会员中心</a></li>
         </template>
         <template v-else>
-          <li><a href="javascript:;">璇峰厛鐧诲綍</a></li>
-          <li><a href="javascript:;">甯姪涓績</a></li>
-          <li><a href="javascript:;">鍏充簬鎴戜滑</a></li>
+          <li><a href="javascript:;">请先登录</a></li>
+          <li><a href="javascript:;">帮助中心</a></li>
+          <li><a href="javascript:;">关于我们</a></li>
         </template>
       </ul>
     </div>
@@ -32,9 +32,7 @@
 
 
 <script>
-export default {
-  name: "Nav"
-}
+
 </script>
 
 <style lang="scss" scoped>

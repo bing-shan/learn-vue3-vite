@@ -8,18 +8,14 @@ import {useCategoryStore} from '@/store/category';
 import {onMounted} from "vue";
 
 const categoryStore = useCategoryStore();
-
-
-onMounted(() => {
-  categoryStore.getCategoryList();
-})
+onMounted(() => categoryStore.getCategoryList());
 </script>
 <template>
   <layout-fixed></layout-fixed>
   <layout-nav></layout-nav>
   <layout-header></layout-header>
-<!--  <home></home>-->
-  <RouterView />
+<!--  <router-view :key="$route.fullPath"></router-view>-->
+  <router-view/>
   <layout-footer></layout-footer>
 </template>
 <style lang="scss" scoped>

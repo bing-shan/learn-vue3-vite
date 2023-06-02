@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, createWebHashHistory } from "vue-router";
 import Home from "@/views/Home/Index.vue";
 import Category from "@/views/category/Index.vue";
-import Layout from "../views/layout/Index.vue";
+import Layout from "@/views/layout/Index.vue";
 
 const routes = [
   // {
@@ -25,11 +25,11 @@ const routes = [
       },
     ]
   },
-  {
-    path: "/:pathMatch(.*)",
-    name: "Layout",
-    component: Layout,
-  },
+  // {
+  //   path: "/:pathMatch(.*)",
+  //   name: "Layout",
+  //   component: Layout,
+  // },
 ];
 const router = createRouter({
   history: createWebHistory(),
