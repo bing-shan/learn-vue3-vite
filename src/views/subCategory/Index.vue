@@ -1,6 +1,48 @@
 <script setup>
-import GoodsItem from "@/views/home/GoodsItem.vue";
+import GoodsItem from "@/views/home/components/GoodsItem.vue";
+import {getCategoryFilterAPI, getSubCategoryAPI} from "@/apis/category.js"
+import {onMounted} from "vue";
 
+const categoryData = ref({})
+const route = useRoute();
+const getCategoryData = async () => {
+  const res = await getCategoryFilterAPI(route.params.id)
+  categoryData.value = res.result;
+}
+
+const goodsList = ref([]);
+const reqData = ref({
+  categoryId: route.params.id,
+  page: 1,
+  pageSize: 20,
+  sortField: "publishTime"
+});
+
+const getGoodsList = async () => {
+  const res = await getSubCategoryAPI(reqData.value);
+  goodsList.value = res.result.items;
+}
+
+const disabled = ref(false);
+const tabChange = () => {
+  reqData.page = 1;
+  getGoodsList();
+};
+
+const load = async () => {
+  reqData.page++;
+  const res = await getSubCategoryAPI(reqData.value);
+  goodsList.value = [...goodsList.value, ...res.result.items];
+  // 加载完毕 停止监听
+  if (res.result.items.length === 0) {
+    disabled.value = true
+  }
+};
+
+onMounted(() => {
+  getCategoryData();
+  getGoodsList();
+});
 </script>
 <template>
   <div class="container ">
@@ -22,7 +64,13 @@ import GoodsItem from "@/views/home/GoodsItem.vue";
       </el-tabs>
       <div class="body" v-infinite-scroll="load" :infinite-scroll-disabled="disabled">
         <!-- 商品列表-->
-        <GoodsItem v-for="goods in goodList" :goods="goods" :key="goods.id" />
+        <GoodsItem
+          v-for="goods in goodsList"
+          :imgUrl="goods.picture"
+          :text1="goods.name"
+          :text2="goods.price"
+          :key="goods.id"
+        />
       </div>
     </div>
   </div>

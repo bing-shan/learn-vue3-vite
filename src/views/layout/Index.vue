@@ -3,7 +3,6 @@ import LayoutHeader from "./components/Header.vue";
 import LayoutNav from "./components/Nav.vue";
 import LayoutFooter from "./components/Footer.vue";
 import LayoutFixed from './components/LayoutFixed.vue';
-import Home from '../home/Index.vue';
 import {useCategoryStore} from '@/store/category';
 import {onMounted} from "vue";
 

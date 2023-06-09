@@ -19,21 +19,19 @@ onMounted(() => {
     <HomePanel :h2="cate.name" v-for="cate in goodsProduct" :key="cate.id">
       <div class="box">
         <RouterLink class="cover" to="/">
-          <goods-item
-              :imgUrl="cate.picture"
-              :text1="cate.name"
-              :text2="cate.saleInfo"
-          ></goods-item>
+          <img v-img-lazy="cate.picture"/>
+          <strong class="label">
+            <span>{{ cate.name }}馆</span>
+            <span>{{ cate.saleInfo }}</span>
+          </strong>
         </RouterLink>
         <ul class="goods-list">
           <li v-for="good in cate.goods" :key="good.id">
-            <RouterLink to="/" class="goods-item">
-              <goods-item
-                  :imgUrl="good.picture"
-                  :text1="good.name"
-                  :text2="good.desc"
-              ></goods-item>
-            </RouterLink>
+            <goods-item
+              :imgUrl="good.picture"
+              :text1="good.name"
+              :text2="good.desc"
+            ></goods-item>
           </li>
         </ul>
       </div>

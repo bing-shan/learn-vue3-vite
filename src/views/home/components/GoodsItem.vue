@@ -1,6 +1,4 @@
 <script setup>
-import {onMounted} from "vue";
-
 defineProps({
   imgUrl: {
     type: String,
@@ -15,13 +13,12 @@ defineProps({
     default: ""
   },
 })
-
 </script>
 <template>
   <RouterLink to="/" class="goods-item">
     <img alt="" v-img-lazy="imgUrl"/>
-    <p class="name">{{ text1 }}</p>
-    <p class="name">{{ text2 }}</p>
+    <p class="name ellipsis">{{ text1 }}</p>
+    <p class="name ellipsis">{{ text2 }}</p>
   </RouterLink>
 </template>
 <style lang="scss" scoped>
