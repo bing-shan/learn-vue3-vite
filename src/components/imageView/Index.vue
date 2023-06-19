@@ -1,13 +1,12 @@
 <script setup>
 import {useMouseInElement} from "@vueuse/core";
 
-const imageList = [
-  "https://yanxuan-item.nosdn.127.net/d917c92e663c5ed0bb577c7ded73e4ec.png",
-  "https://yanxuan-item.nosdn.127.net/e801b9572f0b0c02a52952b01adab967.jpg",
-  "https://yanxuan-item.nosdn.127.net/b52c447ad472d51adbdde1a83f550ac2.jpg",
-  "https://yanxuan-item.nosdn.127.net/f93243224dc37674dfca5874fe089c60.jpg",
-  "https://yanxuan-item.nosdn.127.net/f881cfe7de9a576aaeea6ee0d1d24823.jpg"
-];
+defineProps({
+  imageList: {
+    type: Array,
+    default: () => [],
+  }
+})
 const activeIndex = ref(0);
 const activateImg = (index) => {
   activeIndex.value = index;
@@ -18,8 +17,10 @@ const {elementX, elementY, isOutside} = useMouseInElement(target);
 const left = ref(0);
 const top = ref(0);
 
-watch([elementX, elementY], ([newElX, newElY, newIsOutside], [oldElX, oldElY, oldIsOutside]) => {
-  // console.log(elementX.value, elementY.value, isOutside);
+watch([elementX, elementY], ([newElX, newElY], [oldElX, oldElY]) => {
+  if (isOutside.value) {
+    return;
+  }
   if (elementX.value > 100 && elementX.value < 300) {
     left.value = elementX.value - 100;
   }
