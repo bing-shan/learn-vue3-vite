@@ -67,8 +67,8 @@ watch([elementX, elementY], ([newElX, newElY, newIsOutside], [oldElX, oldElY, ol
     <div class="large" :style="[
       {
         backgroundImage: `url(${imageList[activeIndex]})`,
-        backgroundPositionX: `${-left}px`,
-        backgroundPositionY: `${-top}px`,
+        backgroundPositionX: `${-2*left}px`,
+        backgroundPositionY: `${-2*top}px`,
       },
     ]" v-show="!isOutside"></div>
   </div>

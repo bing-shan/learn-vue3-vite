@@ -1,7 +1,6 @@
 <script setup>
 import {getDetail} from "@/apis/detail.js"
 import DetailHot from "./components/DetailHot.vue"
-import ImageView from "@/components/imageView/Index.vue"
 import {onMounted} from "vue";
 
 const route = useRoute();
@@ -21,6 +20,10 @@ const countChange = (count) => {
 // 添加购物车
 const addCart = () => {
 
+}
+
+const changeSku = (obj) => {
+  console.log(obj)
 }
 
 onMounted(() => {
@@ -48,7 +51,7 @@ onMounted(() => {
         <div class="goods-info">
           <div class="media">
             <!-- 图片预览区 -->
-            <image-view></image-view>
+            <xtx-image-view></xtx-image-view>
             <!-- 统计数量 -->
             <ul class="goods-sales">
               <li>
@@ -97,7 +100,7 @@ onMounted(() => {
               </dl>
             </div>
             <!-- sku组件 -->
-
+            <xtx-sku :goods="goods" @change="changeSku"></xtx-sku>
             <!-- 数据组件 -->
             <el-input-number v-model="count" @change="countChange"/>
             <!-- 按钮组件 -->

@@ -4,7 +4,7 @@ import AutoImport from "unplugin-auto-import/vite";
 import path from "path";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
-
+const IS_PROD = ["production","test"].includes((process.env.NODE_ENV))
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -35,6 +35,7 @@ export default defineConfig({
     },
   },
   css: {
+    extract:IS_PROD,
     preprocessorOptions: {
       scss: {
         //2，自动导入定制化样式文件进行样式覆盖。

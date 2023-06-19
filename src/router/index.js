@@ -34,11 +34,11 @@ const routes = [
       },
     ]
   },
-  // {
-  //   path: "/:pathMatch(.*)",
-  //   name: "Layout",
-  //   component: Layout,
-  // },
+  {
+    path: "/login",
+    name: "login",
+    component: import("@/views/login/Index.vue"),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),

@@ -6,7 +6,7 @@
   <nav class="app-topnav">
     <div class="container">
       <ul>
-        <template v-if="true">
+        <template v-if="false">
           <li>
             <a href="javascript:;"><i class="iconfont icon-user"></i>鍛ㄦ澃浼?</a>
           </li>
@@ -21,7 +21,7 @@
           <li><a href="javascript:;">会员中心</a></li>
         </template>
         <template v-else>
-          <li><a href="javascript:;">请先登录</a></li>
+          <li><a href="javascript:;" @click="$router.push('/login')">请先登录</a></li>
           <li><a href="javascript:;">帮助中心</a></li>
           <li><a href="javascript:;">关于我们</a></li>
         </template>
@@ -29,12 +29,6 @@
     </div>
   </nav>
 </template>
-
-
-<script>
-
-</script>
-
 <style lang="scss" scoped>
 .app-topnav {
   background: #333;
