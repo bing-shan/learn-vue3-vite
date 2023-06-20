@@ -1,17 +1,25 @@
 <script setup>
 import {reactive} from "vue";
+import {loginAPI} from "@/apis/user.js";
 
 const form = reactive({
   account: "",
   password: "",
-  agree: true,
+  agree: false,
 });
 
 const formRef = ref(null);
 const submit = () => {
-  formRef.value.validate((valid) => {
+  const {account,password} = form;
+  formRef.value.validate(async (valid) => {
     if(valid){
-
+      const res = await loginAPI({account,password});
+      if(res.code === "1"){
+        ElMessage({
+          message: res.msg,
+          type: 'success',
+        })
+      }
     }
   })
 }

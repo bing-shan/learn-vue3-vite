@@ -11,6 +11,7 @@ export default defineConfig({
     vue(),
     AutoImport({
       imports: ["vue", "vue-router"], //自动导入vue和vue-router相关函数
+      resolvers: [ElementPlusResolver()],
     }),
     Components({
       //1，配置ElementPlus采用sass样式配色系统
