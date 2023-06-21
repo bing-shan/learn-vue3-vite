@@ -1,6 +1,4 @@
 <script setup>
-import {reactive} from "vue";
-import {loginAPI} from "@/apis/user.js";
 
 const form = reactive({
   account: "",
@@ -10,18 +8,14 @@ const form = reactive({
 
 const formRef = ref(null);
 const router = useRouter();
+import {useUserStore} from "@/store/users.js";
+const userStore = useUserStore();
 const submit = () => {
   const {account,password} = form;
   formRef.value.validate(async (valid) => {
     if(valid){
-      const res = await loginAPI({account,password});
-      if(res.code === "1"){
-        ElMessage({
-          message: "登录成功！",
-          type: 'success',
-        });
-        router.replace({path:"/"});
-      }
+      await userStore.getUserInfo({account,password});
+      router.replace({path:"/"});
     }
   })
 }
