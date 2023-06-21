@@ -9,6 +9,10 @@ instance.interceptors.request.use(config => {
 },e => Promise.reject(e));
 
 instance.interceptors.response.use(res => res.data,e => {
+    ElMessage({
+        message: e.response.data.msg,
+        type: 'warning',
+    });
     return Promise.reject(e);
 })
 
