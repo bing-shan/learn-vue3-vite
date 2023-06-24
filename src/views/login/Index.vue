@@ -1,9 +1,9 @@
 <script setup>
 
 const form = reactive({
-  account: "",
-  password: "",
-  agree: false,
+  account: 12056258289,
+  password: "hm#qd@23!",
+  agree: true,
 });
 
 const formRef = ref(null);

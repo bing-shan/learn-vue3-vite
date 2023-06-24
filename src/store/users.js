@@ -2,7 +2,8 @@ import { defineStore } from "pinia";
 import {loginAPI} from "@/apis/user.js";
 
 export const useUserStore = defineStore("user", () => {
-  let userInfo = reactive({});
+  // let userInfo = reactive({});
+  let userInfo = ref({});
   const getUserInfo = async ({account,password}) => {
     const res = await loginAPI({account,password});
     if(res.code === "1"){
@@ -10,14 +11,20 @@ export const useUserStore = defineStore("user", () => {
         message: "登录成功！",
         type: 'success',
       });
-      // console.log(res);
-      userInfo = res.result;
-      // console.log(userInfo);
+      userInfo.value = res.result;
     }
+  };
+
+  //退出登录时清除用户信息：
+  const clearUserInfo = () => {
+    userInfo.value = {};
   };
 
   return {
     userInfo,
-    getUserInfo
+    getUserInfo,
+    clearUserInfo
   }
+},{
+  persist:true
 });
