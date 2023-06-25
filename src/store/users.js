@@ -2,8 +2,8 @@ import { defineStore } from "pinia";
 import {loginAPI} from "@/apis/user.js";
 
 export const useUserStore = defineStore("user", () => {
-  // let userInfo = reactive({});
-  let userInfo = ref({});
+  const userInfo = ref({});
+
   const getUserInfo = async ({account,password}) => {
     const res = await loginAPI({account,password});
     if(res.code === "1"){

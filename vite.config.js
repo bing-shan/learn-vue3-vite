@@ -16,6 +16,7 @@ export default defineConfig({
     Components({
       //1，配置ElementPlus采用sass样式配色系统
       resolvers: [ElementPlusResolver({ importStyle: "sass" })],
+      directoryAsNamespace:true,
     }),
   ],
 
