@@ -2,9 +2,9 @@
 import {getDetail} from "@/apis/detail.js"
 import DetailHot from "./components/DetailHot.vue"
 import {onMounted} from "vue";
+import {useCartStore} from "../../store/cartStore";
 
 const route = useRoute();
-// console.log(route);
 const goods = ref({});
 const getDetailData = async () => {
   const res = await getDetail(route.params.id);
@@ -16,14 +16,28 @@ const countChange = (count) => {
   console.log(count)
 }
 
-
+const cartStore = useCartStore();
 // 添加购物车
 const addCart = () => {
-
+  if(skuObj.skuId){
+    cartStore.addCart({
+      id: goods.value.id,
+      name: goods.value.name,
+      picture: goods.value.mainPictures[0],
+      price: goods.value.price,
+      count: count.value,
+      skuId: skuObj.skuId,
+      attrsText: skuObj.specsText,
+      selected: true
+    })
+  }else{
+    ElMessage.warning("请选择规格")
+  }
 }
 
+let skuObj = {};
 const changeSku = (obj) => {
-  console.log(obj)
+  skuObj = obj;
 }
 
 onMounted(() => {

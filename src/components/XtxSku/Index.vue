@@ -105,7 +105,6 @@ export default {
   },
   emits: ['change'],
   setup(props, {emit}) {
-    console.log(props);
     let pathMap = {}
     watchEffect(() => {
       // 得到所有字典集合
