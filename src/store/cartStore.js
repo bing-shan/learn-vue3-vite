@@ -10,9 +10,16 @@ export const useCartStore = defineStore("cart",() => {
       cartList.value.push(goods);
     }
   };
+
+  const delCart = (id) => {
+    const index = cartList.value.findIndex(item => item.skuId === id);
+    cartList.value.splice(index,1);
+  };
+
   return {
     cartList,
-    addCart
+    addCart,
+    delCart
   }
 },{
   persist:true
