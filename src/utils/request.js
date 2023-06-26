@@ -5,7 +5,7 @@ const instance = axios.create({
   timeout: 5000,
 })
 
-import {useUserStore} from "@/store/users.js";
+import {useUserStore} from "@/store/usersStore.js";
 instance.interceptors.request.use(config => {
   const userStore = useUserStore();//userStore这个变量需要在请求拦截器和相应拦截器里面分别定义，不能一次性定义在外面，否则会报错。
   if (userStore.userInfo.token) {

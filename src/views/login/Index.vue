@@ -8,7 +8,7 @@ const form = reactive({
 
 const formRef = ref(null);
 const router = useRouter();
-import {useUserStore} from "@/store/users.js";
+import {useUserStore} from "@/store/usersStore.js";
 
 const userStore = useUserStore();
 const submit = () => {

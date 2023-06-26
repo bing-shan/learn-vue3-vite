@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import {loginAPI} from "@/apis/user.js";
+import {useCartStore} from "./cartStore";
 
 export const useUserStore = defineStore("user", () => {
   const userInfo = ref({});
@@ -18,6 +19,8 @@ export const useUserStore = defineStore("user", () => {
   //退出登录时清除用户信息：
   const clearUserInfo = () => {
     userInfo.value = {};
+    const cartStore = useCartStore();
+    cartStore.clearCart();
   };
 
   return {

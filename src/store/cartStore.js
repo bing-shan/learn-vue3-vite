@@ -5,8 +5,8 @@ import {insertCartApi,findNewCartListApi,delCartAPI} from "@/apis/cart.js";
 
 export const useCartStore = defineStore("cart",() => {
   const cartList = ref([]);
-  const cartStore = useUserStore();
-  const isLogin = computed(() => cartStore.userInfo.token);
+  const userStore = useUserStore();
+  const isLogin = computed(() => userStore.userInfo.token);
   const addCart = async (goods) => {
     if(isLogin.value){
       await insertCartApi({skuId:goods.skuId, count:goods.count});
@@ -45,11 +45,17 @@ export const useCartStore = defineStore("cart",() => {
   const selectCount = computed(() => cartList.value.filter(item => item.selected).reduce((a,c) => a+c.count,0));
   //最新购物车：
   const updateNewCartList = async () => {
-    //获取最新的购物车列表：
+    // 获取最新的购物车列表：
     const res = await findNewCartListApi();
-    //覆盖本地的购物车列表
+    // 覆盖本地的购物车列表
     cartList.value = res.result;
   };
+
+  //清除购物车信息：
+  const clearCart = () => {
+    cartList.value = [];
+  };
+
   return {
     cartList,
     allCount,
@@ -60,6 +66,7 @@ export const useCartStore = defineStore("cart",() => {
     delCart,
     singleCheck,
     selectAll,
+    clearCart
   }
 },{
   persist:true
