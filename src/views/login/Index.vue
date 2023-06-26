@@ -1,7 +1,7 @@
 <script setup>
 
 const form = reactive({
-  account: 12056258289,
+  account: 12056258291,
   password: "hm#qd@23!",
   agree: true,
 });
