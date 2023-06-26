@@ -12,9 +12,6 @@ const getDetailData = async () => {
 }
 
 const count = ref(1)
-const countChange = (count) => {
-  console.log(count)
-}
 
 const cartStore = useCartStore();
 // 添加购物车
@@ -116,7 +113,7 @@ onMounted(() => {
             <!-- sku组件 -->
             <xtx-sku :goods="goods" @change="changeSku"></xtx-sku>
             <!-- 数据组件 -->
-            <el-input-number v-model="count" @change="countChange"/>
+            <el-input-number v-model="count"/>
             <!-- 按钮组件 -->
             <div>
               <el-button size="large" class="btn" @click="addCart">

@@ -1,6 +1,5 @@
 <script setup>
 import {useCartStore} from "../../store/cartStore";
-import {reactive} from "vue";
 const cartStore = useCartStore();
 const changeSelect = (val,obj) => {
   cartStore.singleCheck(obj.skuId,val);

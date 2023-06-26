@@ -1,62 +1,62 @@
 <template>
   <footer class="app_footer">
-    <!-- 鑱旂郴鎴戜滑 -->
+    <!-- 联系我们 -->
     <div class="contact">
       <div class="container">
         <dl>
-          <dt>瀹㈡埛鏈嶅姟</dt>
-          <dd><i class="iconfont icon-kefu"></i> 鍦ㄧ嚎瀹㈡湇</dd>
-          <dd><i class="iconfont icon-question"></i> 闂鍙嶉</dd>
+          <dt>客户服务</dt>
+          <dd><i class="iconfont icon-kefu"></i> 在线客服</dd>
+          <dd><i class="iconfont icon-question"></i> 问题反馈</dd>
         </dl>
         <dl>
-          <dt>鍏虫敞鎴戜滑</dt>
-          <dd><i class="iconfont icon-weixin"></i> 鍏紬鍙</dd>
-          <dd><i class="iconfont icon-weibo"></i> 寰崥</dd>
+          <dt>关注我们</dt>
+          <dd><i class="iconfont icon-weixin"></i> 公众号</dd>
+          <dd><i class="iconfont icon-weibo"></i> 微博</dd>
         </dl>
         <dl>
-          <dt>涓嬭浇APP</dt>
-          <dd class="qrcode"><img src="@/assets/images/qrcode.jpg"/></dd>
+          <dt>下载APP</dt>
+          <dd class="qrcode"><img src="@/assets/images/qrcode.jpg" /></dd>
           <dd class="download">
-            <span>鎵弿浜岀淮鐮</span>
-            <span>绔嬮┈涓嬭浇APP</span>
-            <a href="javascript:;">涓嬭浇椤甸潰</a>
+            <span>扫描二维码</span>
+            <span>立马下载APP</span>
+            <a href="javascript:;">下载页面</a>
           </dd>
         </dl>
         <dl>
-          <dt>鏈嶅姟鐑嚎</dt>
-          <dd class="hotline">400-0000-000 <small>鍛ㄤ竴鑷冲懆鏃?8:00-18:00</small></dd>
+          <dt>服务热线</dt>
+          <dd class="hotline">400-0000-000 <small>周一至周日 8:00-18:00</small></dd>
         </dl>
       </div>
     </div>
-    <!-- 鍏跺畠 -->
+    <!-- 其它 -->
     <div class="extra">
       <div class="container">
         <div class="slogan">
           <a href="javascript:;">
             <i class="iconfont icon-footer01"></i>
-            <span>浠锋牸浜叉皯</span>
+            <span>价格亲民</span>
           </a>
           <a href="javascript:;">
             <i class="iconfont icon-footer02"></i>
-            <span>鐗╂祦蹇嵎</span>
+            <span>物流快捷</span>
           </a>
           <a href="javascript:;">
             <i class="iconfont icon-footer03"></i>
-            <span>鍝佽川鏂伴矞</span>
+            <span>品质新鲜</span>
           </a>
         </div>
-        <!-- 鐗堟潈淇℃伅 -->
+        <!-- 版权信息 -->
         <div class="copyright">
           <p>
-            <a href="javascript:;">鍏充簬鎴戜滑</a>
-            <a href="javascript:;">甯姪涓績</a>
-            <a href="javascript:;">鍞悗鏈嶅姟</a>
-            <a href="javascript:;">閰嶉€佷笌楠屾敹</a>
-            <a href="javascript:;">鍟嗗姟鍚堜綔</a>
-            <a href="javascript:;">鎼滅储鎺ㄨ崘</a>
-            <a href="javascript:;">鍙嬫儏閾炬帴</a>
+            <a href="javascript:;">关于我们</a>
+            <a href="javascript:;">帮助中心</a>
+            <a href="javascript:;">售后服务</a>
+            <a href="javascript:;">配送与验收</a>
+            <a href="javascript:;">商务合作</a>
+            <a href="javascript:;">搜索推荐</a>
+            <a href="javascript:;">友情链接</a>
           </p>
-          <p>CopyRight 漏 灏忓厰椴滃効</p>
+          <p>CopyRight © 小兔鲜儿</p>
         </div>
       </div>
     </div>
