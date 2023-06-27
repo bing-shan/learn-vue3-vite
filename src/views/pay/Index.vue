@@ -2,11 +2,15 @@
 import {getOrderApi} from "@/apis/pay.js";
 import {useRoute} from "vue-router";
 import {onMounted} from "vue";
+import {useCountDown} from "@/composables/useCountDown.js";
+const {start,formatTime} = useCountDown();
+
 const payInfo = ref({});
 const route = useRoute();
 const getPayInfo = async () => {
   const res = await getOrderApi(route.query.id);
   payInfo.value = res.result;
+  start(res.result.countdown);
 };
 
 onMounted(() => getPayInfo());
