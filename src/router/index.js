@@ -26,21 +26,33 @@ const routes = [
         path: 'detail/:id',
         component: () => import("@/views/detail/Index.vue"),
       },{
-        path: "/cartList",
+        path: "cartList",
         name: "cartList",
         component: () => import("@/views/cartList/Index.vue"),
       },{
-        path: "/checkout",
+        path: "checkout",
         name: "checkout",
         component: () => import("@/views/checkout/Index.vue"),
       },{
-        path: "/pay",
+        path: "pay",
         name: "pay",
         component: () => import("@/views/pay/Index.vue"),
       },{
-        path: "/paycallback",
+        path: "paycallback",
         name: "payBack",
         component: () => import("@/views/pay/payBack.vue"),
+      },{
+        path: "member",
+        component: () => import("@/views/member/Index.vue"),
+        children:[
+          {
+            path: "",
+            component: () => import("@/views/member/components/UserInfo.vue"),
+          },{
+            path: "order",
+            component: () => import("@/views/member/components/UserOrder.vue"),
+          }
+        ]
       },
     ]
   },
